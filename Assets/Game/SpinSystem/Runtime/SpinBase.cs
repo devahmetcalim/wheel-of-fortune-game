@@ -1,4 +1,5 @@
 using DG.Tweening;
+using Game.SpinSystem.Data;
 using Game.SpinSystem.Runtime;
 using UnityEngine;
 using UnityEngine.UI;
@@ -34,7 +35,14 @@ namespace Game.SpinSystem
                     isSpinning = false;
                     spinButton.interactable = true;
                     SpinEvents.RaiseSpinCompleted();
-                    SpinEvents.RaiseRewardLanded(indicator.GetSelectedItem());
+                    if (indicator.GetSelectedItem().itemType == SpinItemType.Bomb)
+                    {
+                        SpinEvents.RaiseBombGet();
+                    }
+                    else
+                    {
+                        SpinEvents.RaiseRewardLanded(indicator.GetSelectedItem());
+                    }
                 });
         }
         public bool CanSpin()
