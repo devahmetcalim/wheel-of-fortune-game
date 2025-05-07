@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4bde637feac979e45829b5efb3e05ac1, type: 3}
+  m_Name: GoldSpinVisualConfig
+  m_EditorClassIdentifier: 
+  spinType: 2
+  wheelBaseSprite: {fileID: 21300000, guid: 4513bb6bd6483ce43bd4447cd67d1a9b, type: 3}
+  indicatorSprite: {fileID: 21300000, guid: fe79ef28615c93b44a74c64550354ed6, type: 3}
+  displayText: GOLD SPIN
