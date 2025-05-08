@@ -12,6 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3667ac35c11025f45b6a1cb80f9cf2a3, type: 3}
   m_Name: spin_item_Armor_Points
   m_EditorClassIdentifier: 
-  icon: {fileID: 21300000, guid: d5b408c4e24d38b4f8f452e332bdbc39, type: 3}
+  iconReference:
+    m_AssetGUID: 57c8768339d8ef649be823305f95e2d3
+    m_SubObjectName: UI_Icons_Armor_Points
+    m_SubObjectType: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+    m_EditorAssetChanged: 0
   amount: 1
   itemType: 0
+  itemKey: spin_item_Armor_Points

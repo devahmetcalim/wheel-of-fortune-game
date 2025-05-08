@@ -931,6 +931,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   panelRoot: {fileID: 777701541}
+  deathSprite:
+    m_AssetGUID: 57c8768339d8ef649be823305f95e2d3
+    m_SubObjectName: ui_card_icon_death
+    m_SubObjectType: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+    m_EditorAssetChanged: 0
 --- !u!1 &357302609
 GameObject:
   m_ObjectHideFlags: 0
@@ -4233,6 +4239,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   panelRoot: {fileID: 0}
+  deathSprite:
+    m_AssetGUID: 
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_EditorAssetChanged: 0
 --- !u!114 &1507528411
 MonoBehaviour:
   m_ObjectHideFlags: 0

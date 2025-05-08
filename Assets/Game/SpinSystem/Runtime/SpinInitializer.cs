@@ -1,6 +1,8 @@
 
+using System;
 using UnityEngine;
 using Game.SpinSystem.UI;
+using UnityEngine.AddressableAssets;
 
 namespace Game.SpinSystem.Runtime
 {
@@ -12,9 +14,11 @@ namespace Game.SpinSystem.Runtime
         [SerializeField] private SpinWheelConfig silverConfig;
         [SerializeField] private SpinWheelConfig goldConfig;
 
-        private void OnEnable()
+
+        private void OnEnable() 
         {
             SpinZoneManager.Instance.OnZoneChanged += OnZoneChanged;
+            
         }
 
         private void OnDisable()

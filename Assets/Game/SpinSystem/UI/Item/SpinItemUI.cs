@@ -1,7 +1,10 @@
 using Game.SpinSystem.Data;
+using Game.SpinSystem.Utils;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.AddressableAssets;
+using UnityEngine.ResourceManagement.AsyncOperations;
 
 namespace Game.SpinSystem.UI
 {
@@ -11,12 +14,22 @@ namespace Game.SpinSystem.UI
         [SerializeField] private TMP_Text ui_spin_txt_item_xAmount;
         private SpinItemData itemData;
         public SpinItemData GetItemData() => itemData;
+        private AsyncOperationHandle<Sprite>? spriteHandle;
         public void Setup(SpinItemData data)
         {
-            ui_spin_item_icon.sprite = data.icon;
-            ui_spin_txt_item_xAmount.text = $"x{data.amount}";
             itemData = data;
+            ui_spin_txt_item_xAmount.text = $"x{data.amount}";
+            AddressableSpriteCache.GetSprite(itemData.iconReference, sprite =>
+            {
+                ui_spin_item_icon.sprite = sprite;
+            });
         }
+        private void OnDestroy()
+        {
+            if (spriteHandle.HasValue)
+                Addressables.Release(spriteHandle.Value);
+        }
+
 
     }
 }

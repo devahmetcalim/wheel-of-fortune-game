@@ -12,6 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3667ac35c11025f45b6a1cb80f9cf2a3, type: 3}
   m_Name: spin_item_aviator_glasses_easter
   m_EditorClassIdentifier: 
-  icon: {fileID: 21300000, guid: 733c78d655a460340b5201c28a93e611, type: 3}
+  iconReference:
+    m_AssetGUID: 57c8768339d8ef649be823305f95e2d3
+    m_SubObjectName: ui_icon_aviator_glasses_easter
+    m_SubObjectType: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+    m_EditorAssetChanged: 0
   amount: 1
   itemType: 0
+  itemKey: spin_item_aviator_glasses_easter

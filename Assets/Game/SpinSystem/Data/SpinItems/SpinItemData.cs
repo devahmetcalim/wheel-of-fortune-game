@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
 
 namespace Game.SpinSystem.Data
 {
@@ -8,7 +9,7 @@ namespace Game.SpinSystem.Data
     [CreateAssetMenu(menuName = "Game/SpinItem")]
     public class SpinItemData : ScriptableObject
     {
-        public Sprite icon;
+        public AssetReferenceAtlasedSprite iconReference;
         public int amount;
         public SpinItemType itemType;
         public string itemKey;

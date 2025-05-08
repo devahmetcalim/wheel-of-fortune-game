@@ -815,7 +815,12 @@ PlayerSettings:
   XboxOneOverrideIdentityPublisher: 
   vrEditorSettings: {}
   cloudServicesEnabled:
+    Build: 0
+    Game Performance: 0
+    Purchasing: 0
+    UDP: 0
     UNet: 1
+    Unity Ads: 0
   luminIcon:
     m_Name: 
     m_ModelFolderPath: 
@@ -830,11 +835,11 @@ PlayerSettings:
   apiCompatibilityLevel: 6
   activeInputHandler: 0
   windowsGamepadBackendHint: 0
-  cloudProjectId: df369c59-4390-40f5-b8cc-da8505945d0d
+  cloudProjectId: 114d6a68-ed0f-4589-a974-3a890bebf863
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
   projectName: wheel-of-fortune-game
-  organizationId: ahmetcalim884
+  organizationId: unity_5bf8449ffc8e071a09af
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
   playerDataPath: 

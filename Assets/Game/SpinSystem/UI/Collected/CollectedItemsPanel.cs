@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 using Game.SpinSystem.Data;
+using Game.SpinSystem.Utils;
 
 namespace Game.SpinSystem.UI.Collected
 {
@@ -22,19 +23,21 @@ namespace Game.SpinSystem.UI.Collected
             AddOrUpdateItem(spinItemData);
         }
 
-        public void AddOrUpdateItem(SpinItemData data)
+        private void AddOrUpdateItem(SpinItemData data)
         {
-            if (itemUIs.ContainsKey(data.itemKey))
-            {
-                itemUIs[data.itemKey].UpdateAmount(data.amount);
-            }
-            else
+           
+            if (!itemUIs.ContainsKey(data.itemKey))
             {
                 var go = Instantiate(collectedItemPrefab, contentContainer);
                 var ui = go.GetComponent<SpinCollectedItemUI>();
-                ui.Set(data.icon, data.amount);
                 itemUIs.Add(data.itemKey, ui);
+                AddressableSpriteCache.GetSprite(data.iconReference, sprite =>
+                {
+                    ui.Set(sprite, data.amount);
+                });
             }
+            itemUIs[data.itemKey].UpdateAmount(data.amount);
+            
         }
 
         public void ClearAll()
