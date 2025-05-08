@@ -1,3 +1,4 @@
+using Game.SpinSystem.Config;
 using TMPro;
 using UnityEngine;
 
@@ -7,18 +8,19 @@ namespace Game.SpinSystem.UI
     {
         [SerializeField] private TMP_Text zoneText;
 
-        public void SetZone(int zoneNumber, bool isCurrent, ZoneVisualStyle style)
+        public void SetZone(int zoneNumber, bool isCurrent)
         {
             zoneText.text = zoneNumber.ToString();
-
-            if (zoneNumber % 30 == 0)
-                zoneText.color = style.superZoneColor;
-            else if (zoneNumber % 5 == 0)
-                zoneText.color = style.safeZoneColor;
-            else if (zoneNumber == 1)
-                zoneText.color = style.safeZoneColor;
+            if (isCurrent)
+            {
+                zoneText.color = SpinConfigRegistry.Instance.GetConfigByZone(zoneNumber).VisualConfig
+                    .DisplayHighlightedColor;
+            }
             else
-                zoneText.color = style.normalColor;
+            {
+                zoneText.color = SpinConfigRegistry.Instance.GetConfigByZone(zoneNumber).VisualConfig
+                    .DisplayNormalColor;
+            }
         }
     }
     

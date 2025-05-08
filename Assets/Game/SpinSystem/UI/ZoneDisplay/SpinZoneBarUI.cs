@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using DG.Tweening;
+using Game.SpinSystem.Config;
 using UnityEngine;
 using Game.SpinSystem.Runtime;
 using TMPro;
@@ -13,11 +14,8 @@ namespace Game.SpinSystem.UI
         [Header("References")]
         [SerializeField] private RectTransform container;
         [SerializeField] private GameObject itemPrefab;
-        [SerializeField] private ZoneVisualStyle zoneVisualStyle;
         [SerializeField] private TMP_Text currentZoneText;
         [SerializeField] private Image highlightedZoneBgImage;
-        [SerializeField] private HighlightedZoneVisualStyle highlightedZoneVisualStyle;
-
         [Header("Settings")]
         [SerializeField] private int itemCount = 7;
         [SerializeField] private float offsetPerZone = 95f;
@@ -51,32 +49,19 @@ namespace Game.SpinSystem.UI
             for (int i = 0; i < items.Count; i++)
             {
                 int zone = i + 1;
-                items[i].SetZone(zone, i == 0, zoneVisualStyle);
+                items[i].SetZone(zone, i == 0);
             }
         }
 
-        private void UpdateUI(SpinType type, int currentZone)
+        private void UpdateUI(int currentZone)
         {
-            Debug.Log("UpdateUI");
             float duration = 0.25f;
             container.DOAnchorPosX(container.anchoredPosition.x - offsetPerZone, duration).SetEase(Ease.OutCubic);
             currentZoneText.text = $"{currentZone}";
-
-            switch (type)
-            {
-                case SpinType.Gold:
-                    currentZoneText.color = highlightedZoneVisualStyle.superZoneColor;
-                    highlightedZoneBgImage.color = zoneVisualStyle.superZoneColor * Color.white;
-                    break;
-                case SpinType.Silver:
-                    currentZoneText.color = highlightedZoneVisualStyle.safeZoneColor;
-                    highlightedZoneBgImage.color = zoneVisualStyle.safeZoneColor * Color.white;
-                    break;
-                default:
-                    currentZoneText.color = highlightedZoneVisualStyle.normalColor;
-                    highlightedZoneBgImage.color = zoneVisualStyle.normalColor;
-                    break;
-            }
+            currentZoneText.color = SpinConfigRegistry.Instance.GetConfigByZone(currentZone).VisualConfig
+                .DisplayNormalColor;
+            highlightedZoneBgImage.color = SpinConfigRegistry.Instance.GetConfigByZone(currentZone).VisualConfig
+                .DisplayHighlightedColor;
 
         }
 

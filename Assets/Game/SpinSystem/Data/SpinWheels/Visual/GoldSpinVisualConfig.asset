@@ -16,3 +16,5 @@ MonoBehaviour:
   wheelBaseSprite: {fileID: 21300000, guid: 4513bb6bd6483ce43bd4447cd67d1a9b, type: 3}
   indicatorSprite: {fileID: 21300000, guid: fe79ef28615c93b44a74c64550354ed6, type: 3}
   displayText: GOLD SPIN
+  DisplayNormalColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  DisplayHighlightedColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}

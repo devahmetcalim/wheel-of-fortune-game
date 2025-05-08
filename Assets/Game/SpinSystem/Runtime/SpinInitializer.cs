@@ -1,7 +1,9 @@
 
 using System;
+using Game.SpinSystem.Config;
 using UnityEngine;
 using Game.SpinSystem.UI;
+using Game.SpinSystem.Utils;
 using UnityEngine.AddressableAssets;
 
 namespace Game.SpinSystem.Runtime
@@ -10,11 +12,6 @@ namespace Game.SpinSystem.Runtime
     {
         [SerializeField] private SpinItemInitializer itemInitializer;
         [SerializeField] private SpinVisualManager visualManager;
-        [SerializeField] private SpinWheelConfig bronzeConfig;
-        [SerializeField] private SpinWheelConfig silverConfig;
-        [SerializeField] private SpinWheelConfig goldConfig;
-
-
         private void OnEnable() 
         {
             SpinZoneManager.Instance.OnZoneChanged += OnZoneChanged;
@@ -26,21 +23,13 @@ namespace Game.SpinSystem.Runtime
             SpinZoneManager.Instance.OnZoneChanged -= OnZoneChanged;
         }
 
-        private void OnZoneChanged(SpinType spinType, int zone)
+        private void OnZoneChanged(int zone)
         {
-            var config = GetConfigForType(spinType);
+            var config = SpinConfigRegistry.Instance.GetConfigByZone(zone);
             itemInitializer.SetItems(config);
-            visualManager.ApplyVisual(GetConfigForType(spinType).VisualConfig);
+            visualManager.ApplyVisual(SpinConfigRegistry.Instance.GetConfigByZone(zone).VisualConfig);
         }
 
-        private SpinWheelConfig GetConfigForType(SpinType type)
-        {
-            return type switch
-            {
-                SpinType.Gold => goldConfig,
-                SpinType.Silver => silverConfig,
-                _ => bronzeConfig
-            };
-        }
+        
     }
 }

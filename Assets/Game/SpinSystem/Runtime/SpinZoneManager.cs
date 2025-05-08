@@ -8,7 +8,7 @@ namespace Game.SpinSystem.Runtime
     public class SpinZoneManager : MonoBehaviour
     {
         public static SpinZoneManager Instance { get; private set; }
-        public event Action<SpinType, int> OnZoneChanged;
+        public event Action<int> OnZoneChanged;
         
         [SerializeField] private int currentZone = 1;
 
@@ -37,19 +37,10 @@ namespace Game.SpinSystem.Runtime
             TriggerZoneUpdate();
         }
 
-        public SpinType GetSpinTypeForZone(int zone)
-        {
-            if (zone % 30 == 0) return SpinType.Gold;
-            if (zone % 5 == 0) return SpinType.Silver;
-            if (zone == 1) return SpinType.Silver;
-            return SpinType.Bronze;
-        }
-
         private void TriggerZoneUpdate()
         {
             currentZone++;
-            var type = GetSpinTypeForZone(currentZone);
-            OnZoneChanged?.Invoke(type, currentZone);
+            OnZoneChanged?.Invoke(currentZone);
         }
 
         private void OnDisable()

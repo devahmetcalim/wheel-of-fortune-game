@@ -8,12 +8,8 @@ public class SpinVisualConfig : ScriptableObject
     public Sprite wheelBaseSprite;
     public Sprite indicatorSprite;
     public string displayText;
-    public string key;
-
-    private void OnValidate()
-    {
-        //key = this.name;
-    }
+    public Color DisplayNormalColor;
+    public Color DisplayHighlightedColor;
 }
 public enum SpinType
 {
