@@ -1,4 +1,5 @@
 using Game.SpinSystem.Utils;
+using Game.Systems.Event;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.UI;
@@ -12,15 +13,15 @@ namespace Game.SpinSystem.UI.Fail
         [SerializeField] private Image deathImage;
         private void OnEnable()
         {
-            SpinEvents.OnBombGet += ShowPanel;
+            EventManager.Subscribe<SpinFailedEvent>(ShowPanel);
         }
 
         private void OnDisable()
         {
-            SpinEvents.OnBombGet -= ShowPanel;
+            EventManager.Unsubscribe<SpinFailedEvent>(ShowPanel);
         }
 
-        private void ShowPanel()
+        private void ShowPanel(SpinFailedEvent onSpinFailedEvent)
         {
             panelRoot.SetActive(true);
             AddressableSpriteCache.GetSprite(deathSprite, sprite =>

@@ -16,7 +16,7 @@ namespace Game.SpinSystem.Data
 
         private void OnValidate()
         {
-            //itemKey = this.name;
+            //temKey = this.name;
         }
     }
 }

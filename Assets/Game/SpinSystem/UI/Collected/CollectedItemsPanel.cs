@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Game.SpinSystem.Data;
 using Game.SpinSystem.Utils;
+using Game.Systems.Event;
 
 namespace Game.SpinSystem.UI.Collected
 {
@@ -15,12 +16,12 @@ namespace Game.SpinSystem.UI.Collected
 
         private void OnEnable()
         {
-            SpinEvents.OnRewardLanded += SpinEventsOnOnRewardLanded;
+            EventManager.Subscribe<RewardCollectedEvent>(RewardCollected);
         }
 
-        private void SpinEventsOnOnRewardLanded(SpinItemData spinItemData)
+        private void RewardCollected(RewardCollectedEvent rewardCollectedEvent)
         {
-            AddOrUpdateItem(spinItemData);
+            AddOrUpdateItem(rewardCollectedEvent.item);
         }
 
         private void AddOrUpdateItem(SpinItemData data)
@@ -51,7 +52,7 @@ namespace Game.SpinSystem.UI.Collected
 
         private void OnDisable()
         {
-            SpinEvents.OnRewardLanded -= SpinEventsOnOnRewardLanded;
+            EventManager.Unsubscribe<RewardCollectedEvent>(RewardCollected);
         }
     }
 }

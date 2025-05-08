@@ -1,5 +1,6 @@
 using UnityEngine;
 using Game.SpinSystem.Data;
+using Game.Systems.Event;
 
 namespace Game.SpinSystem.Runtime
 {
@@ -9,17 +10,17 @@ namespace Game.SpinSystem.Runtime
 
         private void OnEnable()
         {
-            SpinEvents.OnRewardLanded += HandleReward;
+            EventManager.Subscribe<RewardCollectedEvent>(HandleReward);
         }
 
         private void OnDisable()
         {
-            SpinEvents.OnRewardLanded -= HandleReward;
+            EventManager.Unsubscribe<RewardCollectedEvent>(HandleReward);
         }
 
-        private void HandleReward(SpinItemData reward)
+        private void HandleReward(RewardCollectedEvent rewardCollectedEvent)
         {
-            rewardBank.AddReward(reward);
+            rewardBank.AddReward(rewardCollectedEvent.item);
         }
     }
 }

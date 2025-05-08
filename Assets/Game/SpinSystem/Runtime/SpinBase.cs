@@ -1,6 +1,7 @@
 using DG.Tweening;
 using Game.SpinSystem.Data;
 using Game.SpinSystem.Runtime;
+using Game.Systems.Event;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -25,7 +26,7 @@ namespace Game.SpinSystem
         {
             if (!CanSpin()) return;
             isSpinning = true;
-            SpinEvents.RaiseSpinStarted();
+            EventManager.Publish(new SpinStartedEvent());
             spinButton.interactable = false;
             float angle = spinLogic.CalculateTargetAngle(8);
             spinPivot.DORotate(new Vector3(0, 0, -angle), 4f, RotateMode.FastBeyond360)
@@ -36,13 +37,12 @@ namespace Game.SpinSystem
                     spinButton.interactable = true;
                     if (indicator.GetSelectedItem().itemType == SpinItemType.Bomb)
                     {
-                        Debug.Log("Bomb Get");
-                        SpinEvents.RaiseBombGet();
+                        EventManager.Publish(new SpinFailedEvent());
                     }
                     else
                     {
-                        SpinEvents.RaiseSpinCompleted();
-                        SpinEvents.RaiseRewardLanded(indicator.GetSelectedItem());
+                        EventManager.Publish(new SpinCompletedEvent());
+                        EventManager.Publish(new RewardCollectedEvent(indicator.GetSelectedItem()));
                         
                     }
                 });

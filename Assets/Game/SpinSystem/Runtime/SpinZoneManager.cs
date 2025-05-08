@@ -1,6 +1,7 @@
 using UnityEngine;
 using System;
 using Game.SpinSystem.Data;
+using Game.Systems.Event;
 
 namespace Game.SpinSystem.Runtime
 {
@@ -29,9 +30,9 @@ namespace Game.SpinSystem.Runtime
 
         private void OnEnable()
         {
-            SpinEvents.OnSpinCompleted += OnSpinCompleted;
+            EventManager.Subscribe<SpinCompletedEvent>(OnSpinCompleted);
         }
-        private void OnSpinCompleted()
+        private void OnSpinCompleted(SpinCompletedEvent e)
         {
             TriggerZoneUpdate();
         }
@@ -53,7 +54,7 @@ namespace Game.SpinSystem.Runtime
 
         private void OnDisable()
         {
-            SpinEvents.OnSpinCompleted -= OnSpinCompleted;
+            EventManager.Unsubscribe<SpinCompletedEvent>(OnSpinCompleted);
         }
     }
 }
