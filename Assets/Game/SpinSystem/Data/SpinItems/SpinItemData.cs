@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace Game.SpinSystem.Data
@@ -10,5 +11,11 @@ namespace Game.SpinSystem.Data
         public Sprite icon;
         public int amount;
         public SpinItemType itemType;
+        public string itemKey;
+
+        private void OnValidate()
+        {
+            //itemKey = this.name;
+        }
     }
 }

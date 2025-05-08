@@ -10,7 +10,7 @@ namespace Game.SpinSystem.UI.Collected
         [SerializeField] private Transform contentContainer;
         [SerializeField] private GameObject collectedItemPrefab;
 
-        private Dictionary<SpinItemData, SpinCollectedItemUI> itemUIs = new();
+        private Dictionary<string, SpinCollectedItemUI> itemUIs = new();
 
         private void OnEnable()
         {
@@ -24,16 +24,16 @@ namespace Game.SpinSystem.UI.Collected
 
         public void AddOrUpdateItem(SpinItemData data)
         {
-            if (itemUIs.ContainsKey(data))
+            if (itemUIs.ContainsKey(data.itemKey))
             {
-                itemUIs[data].UpdateAmount(data.amount);
+                itemUIs[data.itemKey].UpdateAmount(data.amount);
             }
             else
             {
                 var go = Instantiate(collectedItemPrefab, contentContainer);
                 var ui = go.GetComponent<SpinCollectedItemUI>();
                 ui.Set(data.icon, data.amount);
-                itemUIs.Add(data, ui);
+                itemUIs.Add(data.itemKey, ui);
             }
         }
 

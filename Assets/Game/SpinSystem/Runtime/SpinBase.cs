@@ -34,14 +34,16 @@ namespace Game.SpinSystem
                 {
                     isSpinning = false;
                     spinButton.interactable = true;
-                    SpinEvents.RaiseSpinCompleted();
                     if (indicator.GetSelectedItem().itemType == SpinItemType.Bomb)
                     {
+                        Debug.Log("Bomb Get");
                         SpinEvents.RaiseBombGet();
                     }
                     else
                     {
+                        SpinEvents.RaiseSpinCompleted();
                         SpinEvents.RaiseRewardLanded(indicator.GetSelectedItem());
+                        
                     }
                 });
         }
