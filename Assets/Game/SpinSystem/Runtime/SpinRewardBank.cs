@@ -20,7 +20,6 @@ namespace Game.SpinSystem.Runtime
             }
 
             collectedRewards.Add(reward);
-            Debug.Log($"Collected: {reward.name}");
         }
 
         public void ResetRewards()

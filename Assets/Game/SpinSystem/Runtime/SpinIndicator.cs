@@ -18,7 +18,6 @@ namespace Game.SpinSystem.Runtime
             if (isAnimating) return;
             if (!other.TryGetComponent(out SpinItemUI itemUI)) return;
             
-            Debug.Log("SpinIndicator enter");
             isAnimating = true;
             Sequence seq = DOTween.Sequence();
             seq.Append(transform.parent.DORotate(new Vector3(0, 0, indicatorKickAngle), kickDuration))

@@ -59,9 +59,9 @@ namespace Game.SpinSystem.UI
             container.DOAnchorPosX(container.anchoredPosition.x - offsetPerZone, duration).SetEase(Ease.OutCubic);
             currentZoneText.text = $"{currentZone}";
             currentZoneText.color = SpinConfigRegistry.Instance.GetConfigByZone(currentZone).VisualConfig
-                .DisplayNormalColor;
-            highlightedZoneBgImage.color = SpinConfigRegistry.Instance.GetConfigByZone(currentZone).VisualConfig
                 .DisplayHighlightedColor;
+            highlightedZoneBgImage.color = SpinConfigRegistry.Instance.GetConfigByZone(currentZone).VisualConfig
+                .DisplayNormalColor;
 
         }
 

@@ -4,6 +4,7 @@ using UnityEngine;
 using Game.SpinSystem.Data;
 using Game.SpinSystem.Utils;
 using Game.Systems.Event;
+using UnityEngine.UI;
 
 namespace Game.SpinSystem.UI.Collected
 {
@@ -11,7 +12,7 @@ namespace Game.SpinSystem.UI.Collected
     {
         [SerializeField] private Transform contentContainer;
         [SerializeField] private GameObject collectedItemPrefab;
-
+        [SerializeField] private ScrollRect scrollRect;
         private Dictionary<string, SpinCollectedItemUI> itemUIs = new();
 
         private void OnEnable()
@@ -32,6 +33,7 @@ namespace Game.SpinSystem.UI.Collected
                 var go = Instantiate(collectedItemPrefab, contentContainer);
                 var ui = go.GetComponent<SpinCollectedItemUI>();
                 itemUIs.Add(data.itemKey, ui);
+                scrollRect.enabled = itemUIs.Count > 4;
                 AddressableSpriteCache.GetSprite(data.iconReference, sprite =>
                 {
                     ui.Set(sprite, data.amount);

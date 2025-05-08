@@ -9,15 +9,14 @@ namespace Game.SpinSystem.UI.Collected
         [SerializeField] private Image iconImage;
         [SerializeField] private TMP_Text amountText;
         private int amount;
-        public void Set(Sprite icon, int amount)
+        public void Set(Sprite icon, int _amount)
         {
             iconImage.sprite = icon;
-            amountText.text = amount.ToString();
+            amountText.text = _amount.ToString();
         }
 
         public void UpdateAmount(int addAmount)
         {
-            Debug.Log("Add Amount " + addAmount + " Current Amount: " + amount);
             amount += addAmount;
             amountText.text = amount.ToString();
         }
