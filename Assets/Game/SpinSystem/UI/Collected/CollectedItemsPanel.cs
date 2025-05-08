@@ -4,6 +4,7 @@ using UnityEngine;
 using Game.SpinSystem.Data;
 using Game.SpinSystem.Utils;
 using Game.Systems.Event;
+using Game.Systems.Pooling;
 using UnityEngine.UI;
 
 namespace Game.SpinSystem.UI.Collected
@@ -11,10 +12,15 @@ namespace Game.SpinSystem.UI.Collected
     public class CollectedItemsPanel : MonoBehaviour
     {
         [SerializeField] private Transform contentContainer;
-        [SerializeField] private GameObject collectedItemPrefab;
+        [SerializeField] private SpinCollectedItemUI collectedItemPrefab;
         [SerializeField] private ScrollRect scrollRect;
         private Dictionary<string, SpinCollectedItemUI> itemUIs = new();
+        private ObjectPool<SpinCollectedItemUI> itemPool;
 
+        private void Awake()
+        {
+            itemPool = new ObjectPool<SpinCollectedItemUI>(collectedItemPrefab, 10, contentContainer);
+        }
         private void OnEnable()
         {
             EventManager.Subscribe<RewardCollectedEvent>(RewardCollected);
@@ -30,8 +36,7 @@ namespace Game.SpinSystem.UI.Collected
            
             if (!itemUIs.ContainsKey(data.itemKey))
             {
-                var go = Instantiate(collectedItemPrefab, contentContainer);
-                var ui = go.GetComponent<SpinCollectedItemUI>();
+                var ui = itemPool.Get();
                 itemUIs.Add(data.itemKey, ui);
                 scrollRect.enabled = itemUIs.Count > 4;
                 AddressableSpriteCache.GetSprite(data.iconReference, sprite =>
@@ -47,7 +52,7 @@ namespace Game.SpinSystem.UI.Collected
         {
             foreach (var kv in itemUIs)
             {
-                Destroy(kv.Value.gameObject);
+                itemPool.Return(kv.Value);
             }
             itemUIs.Clear();
         }

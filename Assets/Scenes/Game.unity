@@ -2700,7 +2700,7 @@ Camera:
   m_AllowMSAA: 1
   m_AllowDynamicResolution: 0
   m_ForceIntoRT: 0
-  m_OcclusionCulling: 1
+  m_OcclusionCulling: 0
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
 --- !u!4 &963194228
@@ -4919,9 +4919,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemInitializer: {fileID: 162472643}
   visualManager: {fileID: 1208355423}
-  bronzeConfig: {fileID: 11400000, guid: 38108a74c68ee98468f7e9749968c20b, type: 2}
-  silverConfig: {fileID: 11400000, guid: 2fb8518962fffb4418459b508e28ec34, type: 2}
-  goldConfig: {fileID: 11400000, guid: bbe4bf1a38089e3428206703fdcac968, type: 2}
 --- !u!1 &1736478416
 GameObject:
   m_ObjectHideFlags: 0
@@ -5369,7 +5366,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1823662287}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1aa08ab6e0800fa44ae55d278d1423e3, type: 3}
   m_Name: 
@@ -5741,7 +5738,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   contentContainer: {fileID: 1345943571}
-  collectedItemPrefab: {fileID: 8715225050321102337, guid: 65ccad9845088c54a9497e1886881f55, type: 3}
+  collectedItemPrefab: {fileID: 8715225050321102341, guid: 65ccad9845088c54a9497e1886881f55, type: 3}
+  scrollRect: {fileID: 1823662289}
 --- !u!1001 &1950189560
 PrefabInstance:
   m_ObjectHideFlags: 0
