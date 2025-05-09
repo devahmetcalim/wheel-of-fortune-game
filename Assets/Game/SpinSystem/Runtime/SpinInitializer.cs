@@ -4,6 +4,7 @@ using Game.SpinSystem.Config;
 using UnityEngine;
 using Game.SpinSystem.UI;
 using Game.SpinSystem.Utils;
+using Game.Systems.Event;
 using UnityEngine.AddressableAssets;
 
 namespace Game.SpinSystem.Runtime
@@ -14,20 +15,20 @@ namespace Game.SpinSystem.Runtime
         [SerializeField] private SpinVisualManager visualManager;
         private void OnEnable() 
         {
-            SpinZoneManager.Instance.OnZoneChanged += OnZoneChanged;
+            EventManager.Subscribe<SpinZoneChangedEvent>(OnZoneChanged);
             
         }
 
         private void OnDisable()
         {
-            SpinZoneManager.Instance.OnZoneChanged -= OnZoneChanged;
+            EventManager.Unsubscribe<SpinZoneChangedEvent>(OnZoneChanged);
         }
 
-        private void OnZoneChanged(int zone)
+        private void OnZoneChanged(SpinZoneChangedEvent e)
         {
-            var config = SpinConfigRegistry.Instance.GetConfigByZone(zone);
+            var config = SpinConfigRegistry.Instance.GetConfigByZone(e.SpinZone);
             itemInitializer.SetItems(config);
-            visualManager.ApplyVisual(SpinConfigRegistry.Instance.GetConfigByZone(zone).VisualConfig);
+            visualManager.ApplyVisual(SpinConfigRegistry.Instance.GetConfigByZone(e.SpinZone).VisualConfig);
         }
 
         

@@ -15,6 +15,7 @@ namespace Game.SpinSystem.UI.Collected
         [SerializeField] private SpinCollectedItemUI collectedItemPrefab;
         [SerializeField] private ScrollRect scrollRect;
         private Dictionary<string, SpinCollectedItemUI> itemUIs = new();
+        private List<SpinItemData> collectedItems = new();
         private ObjectPool<SpinCollectedItemUI> itemPool;
 
         private void Awake()
@@ -45,6 +46,10 @@ namespace Game.SpinSystem.UI.Collected
                 });
             }
             itemUIs[data.itemKey].UpdateAmount(data.amount);
+            if (!collectedItems.Contains(data))
+            {
+                collectedItems.Add(data);
+            }
             
         }
 
@@ -54,12 +59,17 @@ namespace Game.SpinSystem.UI.Collected
             {
                 itemPool.Return(kv.Value);
             }
+            collectedItems.Clear(); 
             itemUIs.Clear();
         }
 
         private void OnDisable()
         {
             EventManager.Unsubscribe<RewardCollectedEvent>(RewardCollected);
+        }
+        public List<SpinItemData> GetCollectedItems()
+        {
+            return collectedItems;
         }
     }
 }

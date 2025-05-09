@@ -1,5 +1,7 @@
 namespace Game.Systems.Event
 {
-    public class SpinCompletedEvent { }
+    public class SpinCompletedEvent
+    {
+    }
 
 }

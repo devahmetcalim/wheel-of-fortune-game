@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Game.SpinSystem.Data;
+using Game.SpinSystem.Runtime;
 
 namespace Game.SpinSystem.Config
 {

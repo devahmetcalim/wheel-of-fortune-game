@@ -3,6 +3,7 @@ using DG.Tweening;
 using Game.SpinSystem.Config;
 using UnityEngine;
 using Game.SpinSystem.Runtime;
+using Game.Systems.Event;
 using TMPro;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
@@ -26,15 +27,14 @@ namespace Game.SpinSystem.UI
         {
             CreateZoneItems();
             
-            SpinZoneManager.Instance.OnZoneChanged += UpdateUI;
+            EventManager.Subscribe<SpinZoneChangedEvent>(UpdateUI);
             
          
         }
 
         private void OnDestroy()
-        {
-            if (SpinZoneManager.Instance != null)
-                SpinZoneManager.Instance.OnZoneChanged -= UpdateUI;
+        { 
+            EventManager.Unsubscribe<SpinZoneChangedEvent>(UpdateUI);
         }
 
         private void CreateZoneItems()
@@ -53,14 +53,14 @@ namespace Game.SpinSystem.UI
             }
         }
 
-        private void UpdateUI(int currentZone)
+        private void UpdateUI(SpinZoneChangedEvent e)
         {
             float duration = 0.25f;
             container.DOAnchorPosX(container.anchoredPosition.x - offsetPerZone, duration).SetEase(Ease.OutCubic);
-            currentZoneText.text = $"{currentZone}";
-            currentZoneText.color = SpinConfigRegistry.Instance.GetConfigByZone(currentZone).VisualConfig
+            currentZoneText.text = $"{e.SpinZone}";
+            currentZoneText.color = SpinConfigRegistry.Instance.GetConfigByZone(e.SpinZone).VisualConfig
                 .DisplayHighlightedColor;
-            highlightedZoneBgImage.color = SpinConfigRegistry.Instance.GetConfigByZone(currentZone).VisualConfig
+            highlightedZoneBgImage.color = SpinConfigRegistry.Instance.GetConfigByZone(e.SpinZone).VisualConfig
                 .DisplayNormalColor;
 
         }
