@@ -20,4 +20,6 @@ MonoBehaviour:
     m_EditorAssetChanged: 0
   amount: 1
   itemType: 0
-  itemKey: 
+  itemKey: spin_item_SMG_Points
+  maxAmount: 15
+  minAmount: 5

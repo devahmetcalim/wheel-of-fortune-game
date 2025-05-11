@@ -20,4 +20,6 @@ MonoBehaviour:
     m_EditorAssetChanged: 0
   amount: 1
   itemType: 0
-  itemKey: 
+  itemKey: spin_item_render_cons_healthshot_2_regenerator
+  maxAmount: 5
+  minAmount: 1

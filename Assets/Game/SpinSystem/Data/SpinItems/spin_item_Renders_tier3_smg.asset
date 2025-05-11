@@ -20,4 +20,6 @@ MonoBehaviour:
     m_EditorAssetChanged: 0
   amount: 1
   itemType: 0
-  itemKey: 
+  itemKey: spin_item_Renders_tier3_smg
+  maxAmount: 1
+  minAmount: 1

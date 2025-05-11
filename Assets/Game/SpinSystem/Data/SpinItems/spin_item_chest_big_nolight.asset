@@ -21,3 +21,5 @@ MonoBehaviour:
   amount: 1
   itemType: 0
   itemKey: 
+  maxAmount: 3
+  minAmount: 1

@@ -21,3 +21,5 @@ MonoBehaviour:
   amount: 1
   itemType: 0
   itemKey: spin_item_aviator_glasses_easter
+  maxAmount: 1
+  minAmount: 1

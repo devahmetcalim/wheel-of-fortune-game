@@ -21,3 +21,5 @@ MonoBehaviour:
   amount: 1
   itemType: 0
   itemKey: spin_item_chest_silver_nolight
+  maxAmount: 3
+  minAmount: 1

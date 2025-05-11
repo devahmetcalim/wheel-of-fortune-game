@@ -11,7 +11,9 @@ public class SpinWheelConfig : ScriptableObject
     public string key;
     public SpinItemData GetRandomItem()
     {
-        return items[Random.Range(0, items.Length)];
+        SpinItemData selectedData = items[Random.Range(0, items.Length)];
+        selectedData.SetRandomAmount();
+        return selectedData;
     }
 
     private void OnValidate()

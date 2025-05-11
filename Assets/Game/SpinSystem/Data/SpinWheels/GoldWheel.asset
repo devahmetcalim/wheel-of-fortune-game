@@ -13,39 +13,21 @@ MonoBehaviour:
   m_Name: GoldWheel
   m_EditorClassIdentifier: 
   items:
-  - {fileID: 11400000, guid: c34b2eea91cfab44695abbeb5136c055, type: 2}
   - {fileID: 11400000, guid: 3e031d596113ad44ab118c8b16ece9c7, type: 2}
   - {fileID: 11400000, guid: 633d9332dc5098f498fef8e83f4b0248, type: 2}
-  - {fileID: 11400000, guid: 7fae606112fe4cd4499747e9634d041b, type: 2}
-  - {fileID: 11400000, guid: 9ceabe2d499a0394195589442ed2338c, type: 2}
-  - {fileID: 11400000, guid: f31d72fac1a1f7145a7acbbac9374c48, type: 2}
   - {fileID: 11400000, guid: 477356096b833374c8a194fad226c4f9, type: 2}
-  - {fileID: 11400000, guid: 5cd96586f813ee840a43ad9b68d1c562, type: 2}
-  - {fileID: 11400000, guid: c25407c78f00dcc4e86d6fde8b17c2ac, type: 2}
-  - {fileID: 11400000, guid: ff843d989abe741429f48336f7a06b54, type: 2}
   - {fileID: 11400000, guid: 7fc20f0e3d45f794088a6962009e6f23, type: 2}
-  - {fileID: 11400000, guid: ab0e1699f7392484cb52f73a7b7d9753, type: 2}
   - {fileID: 11400000, guid: 929ddb998729c5c4bbf9580140efef8c, type: 2}
-  - {fileID: 11400000, guid: ff2b103698d4e9a4ba66fc0aaa5b8bd9, type: 2}
-  - {fileID: 11400000, guid: 338e4bfa8625491449b523b8da6da2ce, type: 2}
-  - {fileID: 11400000, guid: 90a04e56e1f890b4892ae27853b7f52a, type: 2}
-  - {fileID: 11400000, guid: ecbce1e546f42854da39b002798341fb, type: 2}
-  - {fileID: 11400000, guid: c2fd3fafbc838d14d8e2b3477a1b044c, type: 2}
   - {fileID: 11400000, guid: 36e2af58596667b448b52277decce3f5, type: 2}
   - {fileID: 11400000, guid: fc33d93d3d1f6fa4ea2a45cdb2ef0b2e, type: 2}
   - {fileID: 11400000, guid: 958af3b820419e54e9c974e595168a12, type: 2}
   - {fileID: 11400000, guid: dc38325215e21cd4e9c3845824dadd8d, type: 2}
-  - {fileID: 11400000, guid: 335079d13f0e4fd459550ffc2c57a428, type: 2}
   - {fileID: 11400000, guid: f34315f4f57cbbf4499279a8b6799822, type: 2}
   - {fileID: 11400000, guid: dafbe06ca269b424b80fc627667f4d14, type: 2}
   - {fileID: 11400000, guid: 5c5be9d74b310e946b1e4921a8763bd5, type: 2}
   - {fileID: 11400000, guid: 98d759a4921b0b84aaeae6cbb4b3ccba, type: 2}
   - {fileID: 11400000, guid: ebae680b3f46b87419e2e58ed51736e9, type: 2}
   - {fileID: 11400000, guid: 981d446ff498e4446866c21d399c50b6, type: 2}
-  - {fileID: 11400000, guid: 6ddb3232cb5c1774690e31d4b796988b, type: 2}
-  - {fileID: 11400000, guid: 19169ac71c856514dbde5c62c3db2376, type: 2}
-  - {fileID: 11400000, guid: 5d8f12a54dd03f4459f65660f347aec4, type: 2}
-  - {fileID: 11400000, guid: afabb952ca1740a4f8cef76be94da6c8, type: 2}
-  - {fileID: 11400000, guid: a61724a4c8ed2e04babe392c576fdc5b, type: 2}
-  - {fileID: 11400000, guid: 043f640d56a05ff4bac0a34597516291, type: 2}
+  - {fileID: 11400000, guid: 335079d13f0e4fd459550ffc2c57a428, type: 2}
   VisualConfig: {fileID: 11400000, guid: 1d8450ffcfa7ebe4e9de754354b0bedd, type: 2}
+  key: GoldWheel

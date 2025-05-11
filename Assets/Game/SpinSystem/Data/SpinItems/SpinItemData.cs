@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 
@@ -13,10 +12,20 @@ namespace Game.SpinSystem.Data
         public int amount;
         public SpinItemType itemType;
         public string itemKey;
+        public int maxAmount;
+        public int minAmount;
+        public void SetRandomAmount()
+        {
+            amount = Random.Range(minAmount, maxAmount);
+        }
 
         private void OnValidate()
         {
-            //temKey = this.name;
+            if (itemKey.Length > 0 )
+            {
+                return;
+            }
+            itemKey = this.name;
         }
     }
 }

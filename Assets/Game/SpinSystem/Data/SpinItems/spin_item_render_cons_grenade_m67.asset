@@ -20,4 +20,6 @@ MonoBehaviour:
     m_EditorAssetChanged: 0
   amount: 1
   itemType: 0
-  itemKey: 
+  itemKey: spin_item_render_cons_grenade_m67
+  maxAmount: 5
+  minAmount: 1

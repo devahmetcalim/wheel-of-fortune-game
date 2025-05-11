@@ -18,7 +18,14 @@ namespace Game.SpinSystem.UI
         public void Setup(SpinItemData data)
         {
             itemData = data;
-            ui_spin_txt_item_xAmount.text = $"x{data.amount}";
+            if (data.itemType == SpinItemType.Reward)
+            {
+                ui_spin_txt_item_xAmount.text = $"x{data.amount}";
+            }
+            else
+            {
+                ui_spin_txt_item_xAmount.text = $"BOMB!!!";
+            }
             AddressableSpriteCache.GetSprite(itemData.iconReference, sprite =>
             {
                 ui_spin_item_icon.sprite = sprite;
