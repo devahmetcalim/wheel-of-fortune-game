@@ -29,17 +29,20 @@ namespace Game.SpinSystem.UI
 
         private void OnSpinZoneChanged(SpinZoneChangedEvent obj)
         {
-            if (obj.SpinZone + 1 % _currentSuperZone == 0)
+            if (obj.SpinZone > 1)
             {
-                _currentSuperZone += _superZoneBaseInterval;
-                superZoneIndicatorTxt.text = _currentSuperZone.ToString();
+                if (obj.SpinZone % _currentSuperZone == 0)
+                {
+                    _currentSuperZone += _superZoneBaseInterval;
+                    superZoneIndicatorTxt.text = _currentSuperZone.ToString();
+                }
+                if (obj.SpinZone % _currentSafeZone == 0)
+                {
+                    _currentSafeZone += _safeZoneBaseInterval;
+                    safeZoneIndicatorTxt.text = _currentSafeZone.ToString();
+                }
             }
-
-            if (obj.SpinZone + 1 % _currentSafeZone == 0)
-            {
-                _currentSafeZone += _safeZoneBaseInterval;
-                safeZoneIndicatorTxt.text = _currentSafeZone.ToString();
-            }
+            
         }
 
         private void OnDisable()

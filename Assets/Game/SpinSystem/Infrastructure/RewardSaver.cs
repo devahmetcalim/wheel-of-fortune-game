@@ -30,26 +30,37 @@ namespace Game.SpinSystem.Infrastructure
 
         public static void Save(List<SpinItemData> collectedRewards)
         {
-            var data = new RewardSaveData();
-            Load();
+            var existingRewards = Load();
+            var rewardMap = new Dictionary<string, int>();
+            foreach (var entry in existingRewards)
+            {
+                rewardMap[entry.itemKey] = entry.amount;
+            }
             foreach (var item in collectedRewards)
             {
-                if (item.itemType == SpinItemType.Reward)
-                {
-                    data.rewards.Add(new RewardEntry(item.itemKey, item.amount));
-                }
-            }
+                if (item.itemType != SpinItemType.Reward)
+                    continue;
 
+                if (rewardMap.ContainsKey(item.itemKey))
+                    rewardMap[item.itemKey] += item.amount;
+                else
+                    rewardMap[item.itemKey] = item.amount;
+            }
+            var data = new RewardSaveData();
+            foreach (var kvp in rewardMap)
+            {
+                data.rewards.Add(new RewardEntry(kvp.Key, kvp.Value));
+            }
             var json = JsonUtility.ToJson(data, true);
             Debug.Log(json);
             File.WriteAllText(SavePath, json);
         }
 
+
         public static List<RewardEntry> Load()
         {
             if (!File.Exists(SavePath))
                 return new List<RewardEntry>();
-
             var json = File.ReadAllText(SavePath);
             var data = JsonUtility.FromJson<RewardSaveData>(json);
             return data?.rewards ?? new List<RewardEntry>();
