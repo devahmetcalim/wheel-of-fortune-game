@@ -1,5 +1,6 @@
 using DG.Tweening;
 using Game.SpinSystem.Data;
+using Game.SpinSystem.Data.Resources.SpinItems;
 using Game.SpinSystem.UI;
 using UnityEngine;
 
@@ -11,8 +12,8 @@ namespace Game.SpinSystem.Runtime
         [SerializeField] private float kickDuration = 0.1f;
 
         private bool isAnimating;
-        private SpinItemData selectedItem;
-        public SpinItemData GetSelectedItem() => selectedItem;
+        private SpinItemInstance selectedItem;
+        public SpinItemInstance GetSelectedItem() => selectedItem;
         private void OnTriggerEnter2D(Collider2D other)
         {
             if (isAnimating) return;

@@ -15,7 +15,6 @@ namespace Game.SpinSystem.UI.RewardHistory
         [SerializeField] private RewardHistoryItemUI itemPrefab;
         [SerializeField] private GameObject root;
         [SerializeField] private Button rewardHistoryActivationButton;
-        [SerializeField] private GameObject rewardEmptyInfoText;
         private ObjectPool<RewardHistoryItemUI> itemPool;
         private readonly List<RewardHistoryItemUI> activeItems = new();
 

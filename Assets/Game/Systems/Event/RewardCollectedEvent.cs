@@ -1,10 +1,11 @@
 using Game.SpinSystem.Data;
+using Game.SpinSystem.Data.Resources.SpinItems;
 
 namespace Game.Systems.Event
 {
     public class RewardCollectedEvent
     {
-        public SpinItemData item;
-        public RewardCollectedEvent(SpinItemData item) => this.item = item;
+        public SpinItemInstance item;
+        public RewardCollectedEvent(SpinItemInstance item) => this.item = item;
     }
 }

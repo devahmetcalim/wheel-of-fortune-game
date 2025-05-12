@@ -10,6 +10,7 @@ public class SpinVisualConfig : ScriptableObject
     public string displayText;
     public Color DisplayNormalColor;
     public Color DisplayHighlightedColor;
+    public Color TitleColor;
 }
 public enum SpinType
 {

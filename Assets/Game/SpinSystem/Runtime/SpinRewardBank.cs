@@ -1,16 +1,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Game.SpinSystem.Data;
+using Game.SpinSystem.Data.Resources.SpinItems;
 
 namespace Game.SpinSystem.Runtime
 {
     public class SpinRewardBank : MonoBehaviour
     {
-        private readonly List<SpinItemData> collectedRewards = new();
+        private readonly List<SpinItemInstance> collectedRewards = new();
 
-        public IReadOnlyList<SpinItemData> CollectedRewards => collectedRewards;
+        public IReadOnlyList<SpinItemInstance> CollectedRewards => collectedRewards;
 
-        public void AddReward(SpinItemData reward)
+        public void AddReward(SpinItemInstance reward)
         {
             if (reward.itemType == SpinItemType.Bomb)
             {

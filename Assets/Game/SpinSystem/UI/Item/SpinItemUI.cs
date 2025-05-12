@@ -1,5 +1,8 @@
+using System;
 using Game.SpinSystem.Data;
+using Game.SpinSystem.Data.Resources.SpinItems;
 using Game.SpinSystem.Utils;
+using Game.Systems.Event;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
@@ -12,15 +15,33 @@ namespace Game.SpinSystem.UI
     {
         [SerializeField] private Image ui_spin_item_icon;
         [SerializeField] private TMP_Text ui_spin_txt_item_xAmount;
-        private SpinItemData itemData;
-        public SpinItemData GetItemData() => itemData;
+        [SerializeField] private Collider2D collider;
+        private SpinItemInstance itemData;
+        public SpinItemInstance GetItemData() => itemData;
         private AsyncOperationHandle<Sprite>? spriteHandle;
-        public void Setup(SpinItemData data)
+
+        private void OnEnable()
+        {
+            EventManager.Subscribe<SpinCompletedEvent>(SpinCompleted);
+            EventManager.Subscribe<SpinStartedEvent>(SpinStarted);
+        }
+
+        private void SpinStarted(SpinStartedEvent obj)
+        {
+            collider.enabled = true;
+        }
+
+        private void SpinCompleted(SpinCompletedEvent obj)
+        {
+            collider.enabled = false;
+        }
+
+        public void Setup(SpinItemInstance data)
         {
             itemData = data;
             if (data.itemType == SpinItemType.Reward)
             {
-                ui_spin_txt_item_xAmount.text = $"x{data.amount}";
+                ui_spin_txt_item_xAmount.text = $"x{NumberFormatter.FormatNumber(data.amount)}";
             }
             else
             {
@@ -37,6 +58,10 @@ namespace Game.SpinSystem.UI
                 Addressables.Release(spriteHandle.Value);
         }
 
-
+        private void OnDisable()
+        {
+            EventManager.Unsubscribe<SpinCompletedEvent>(SpinCompleted);
+            EventManager.Unsubscribe<SpinStartedEvent>(SpinStarted);
+        }
     }
 }

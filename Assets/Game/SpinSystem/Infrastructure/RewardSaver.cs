@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 using Game.SpinSystem.Data;
+using Game.SpinSystem.Data.Resources.SpinItems;
 using Game.Systems.Event;
 
 namespace Game.SpinSystem.Infrastructure
@@ -29,7 +30,7 @@ namespace Game.SpinSystem.Infrastructure
             }
         }
 
-        public static void Save(List<SpinItemData> collectedRewards)
+        public static void Save(List<SpinItemInstance> collectedRewards)
         {
             var existingRewards = Load();
             var rewardMap = new Dictionary<string, int>();

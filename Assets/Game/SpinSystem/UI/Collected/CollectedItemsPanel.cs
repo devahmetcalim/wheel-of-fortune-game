@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 using Game.SpinSystem.Data;
+using Game.SpinSystem.Data.Resources.SpinItems;
 using Game.SpinSystem.Utils;
 using Game.Systems.Event;
 using Game.Systems.Pooling;
@@ -15,7 +16,7 @@ namespace Game.SpinSystem.UI.Collected
         [SerializeField] private SpinCollectedItemUI collectedItemPrefab;
         [SerializeField] private ScrollRect scrollRect;
         private Dictionary<string, SpinCollectedItemUI> itemUIs = new();
-        private List<SpinItemData> collectedItems = new();
+        private List<SpinItemInstance> collectedItems = new();
         private ObjectPool<SpinCollectedItemUI> itemPool;
 
         private void Awake()
@@ -32,7 +33,7 @@ namespace Game.SpinSystem.UI.Collected
             AddOrUpdateItem(rewardCollectedEvent.item);
         }
 
-        private void AddOrUpdateItem(SpinItemData data)
+        private void AddOrUpdateItem(SpinItemInstance data)
         {
            
             if (!itemUIs.ContainsKey(data.itemKey))
@@ -50,24 +51,13 @@ namespace Game.SpinSystem.UI.Collected
             {
                 collectedItems.Add(data);
             }
-            
+            EventManager.Publish(new RewardsUpdatedEvent());
         }
-
-        public void ClearAll()
-        {
-            foreach (var kv in itemUIs)
-            {
-                itemPool.Return(kv.Value);
-            }
-            collectedItems.Clear(); 
-            itemUIs.Clear();
-        }
-
         private void OnDisable()
         {
             EventManager.Unsubscribe<RewardCollectedEvent>(RewardCollected);
         }
-        public List<SpinItemData> GetCollectedItems()
+        public List<SpinItemInstance> GetCollectedItems()
         {
             return collectedItems;
         }

@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
 using Game.SpinSystem.Data;
+using Game.SpinSystem.Data.Resources.SpinItems;
 using Game.SpinSystem.UI;
 
 namespace Game.SpinSystem.Runtime
@@ -9,31 +10,33 @@ namespace Game.SpinSystem.Runtime
     {
         [SerializeField]
         private List<SpinItemUI> activeItems = new ();
-        
+        private List<SpinItemData> usedItems = new ();
         public void SetItems(SpinWheelConfig spinConfig)
         {
-            List<SpinItemData> iSpinItemDatas = new List<SpinItemData>();
+            List<SpinItemInstance> iSpinItemDatas = new List<SpinItemInstance>();
+            usedItems.Clear();
             for (var i = 0; i < activeItems.Count; i++)
             {
                 SpinItemData selectedData;
                 if (spinConfig.VisualConfig.spinType == SpinType.Bronze)
-                    selectedData = i == 0 ? spinConfig.GetBomb() : SetRandomItem(spinConfig, iSpinItemDatas);
+                    selectedData = i == 0 ? spinConfig.GetBomb() : SetRandomItem(spinConfig);
                 else
-                    selectedData = SetRandomItem(spinConfig, iSpinItemDatas);
+                    selectedData = SetRandomItem(spinConfig);
                 
-                iSpinItemDatas.Add(selectedData);
-                activeItems[i].Setup(selectedData);
+                SpinItemInstance spinItemInstance = new SpinItemInstance(selectedData);
+                iSpinItemDatas.Add(spinItemInstance);
+                activeItems[i].Setup(spinItemInstance);
             }
         }
 
-        private static SpinItemData SetRandomItem(SpinWheelConfig spinConfig, List<SpinItemData> iSpinItemDatas)
+        private SpinItemData SetRandomItem(SpinWheelConfig spinConfig)
         {
             SpinItemData selectedData;
             do
             {
                 selectedData = spinConfig.GetRandomItem();
-            } while (iSpinItemDatas.Contains(selectedData));
-
+            } while (usedItems.Contains(selectedData));
+            usedItems.Add(selectedData);
             return selectedData;
         }
     }

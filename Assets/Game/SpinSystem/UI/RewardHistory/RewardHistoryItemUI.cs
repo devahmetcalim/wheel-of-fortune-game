@@ -1,4 +1,5 @@
 
+using Game.SpinSystem.Utils;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -13,7 +14,7 @@ namespace Game.SpinSystem.UI.RewardHistory
         public void Set(Sprite sprite, int amount)
         {
             icon.sprite = sprite;
-            amountTxt.text = "x" + amount;
+            amountTxt.text = "x" + NumberFormatter.FormatNumber(amount);
         }
     }
 

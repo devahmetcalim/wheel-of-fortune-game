@@ -15,6 +15,7 @@ namespace Game.SpinSystem.UI
             wheelBaseImage.sprite = spinConfig.wheelBaseSprite;
             indicatorImage.sprite = spinConfig.indicatorSprite;
             spinTypeText.text = spinConfig.displayText;
+            spinTypeText.color = spinConfig.TitleColor;
         }
 
     }

@@ -18,8 +18,8 @@ MonoBehaviour:
     m_SubObjectType: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
     m_EditorAssetChanged: 0
-  amount: 1
+  amount: 40
   itemType: 0
-  itemKey: 
-  maxAmount: 5
-  minAmount: 100
+  itemKey: spin_item_cash
+  maxAmount: 200
+  minAmount: 5000

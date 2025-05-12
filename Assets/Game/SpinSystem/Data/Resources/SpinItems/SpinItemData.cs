@@ -9,11 +9,13 @@ namespace Game.SpinSystem.Data
     public class SpinItemData : ScriptableObject
     {
         public AssetReferenceAtlasedSprite iconReference;
-        public int amount;
         public SpinItemType itemType;
         public string itemKey;
         public int maxAmount;
         public int minAmount;
+        
+        [System.NonSerialized]
+        public int amount;
         public void SetRandomAmount()
         {
             amount = Random.Range(minAmount, maxAmount);

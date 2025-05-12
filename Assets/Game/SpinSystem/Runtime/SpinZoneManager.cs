@@ -19,9 +19,9 @@ namespace Game.SpinSystem.Runtime
 
         private void OnEnable()
         {
-            EventManager.Subscribe<SpinCompletedEvent>(OnSpinCompleted);
+            EventManager.Subscribe<RewardsUpdatedEvent>(RewardsUpdated);
         }
-        private void OnSpinCompleted(SpinCompletedEvent e)
+        private void RewardsUpdated(RewardsUpdatedEvent e)
         {
             TriggerZoneUpdate();
         }
@@ -34,7 +34,7 @@ namespace Game.SpinSystem.Runtime
 
         private void OnDisable()
         {
-            EventManager.Unsubscribe<SpinCompletedEvent>(OnSpinCompleted);
+            EventManager.Unsubscribe<RewardsUpdatedEvent>(RewardsUpdated);
         }
     }
 }

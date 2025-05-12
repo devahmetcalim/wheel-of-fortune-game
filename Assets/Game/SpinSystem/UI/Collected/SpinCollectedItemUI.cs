@@ -1,3 +1,4 @@
+using Game.SpinSystem.Utils;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -8,17 +9,20 @@ namespace Game.SpinSystem.UI.Collected
     {
         [SerializeField] private Image iconImage;
         [SerializeField] private TMP_Text amountText;
-        private int amount;
-        public void Set(Sprite icon, int _amount)
+        private int _amount;
+        public void Set(Sprite icon, int setAmount)
         {
             iconImage.sprite = icon;
-            amountText.text = _amount.ToString();
+            Debug.Log("Set Amount" + setAmount);
+            amountText.text = NumberFormatter.FormatNumber(setAmount);
         }
 
         public void UpdateAmount(int addAmount)
         {
-            amount += addAmount;
-            amountText.text = amount.ToString();
+            _amount += addAmount;
+            Debug.Log("Add amount: " + addAmount);
+            Debug.Log("Update Amount" + _amount);
+            amountText.text = NumberFormatter.FormatNumber(_amount);
         }
     }
 }

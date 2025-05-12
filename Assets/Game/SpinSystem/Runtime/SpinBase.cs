@@ -41,9 +41,9 @@ namespace Game.SpinSystem
                     }
                     else
                     {
-                        EventManager.Publish(new SpinCompletedEvent());
-                        EventManager.Publish(new RewardCollectedEvent(indicator.GetSelectedItem()));
                         
+                        EventManager.Publish(new RewardCollectedEvent(indicator.GetSelectedItem()));
+                        EventManager.Publish(new SpinCompletedEvent());
                     }
                 });
         }

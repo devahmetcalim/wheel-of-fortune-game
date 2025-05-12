@@ -18,3 +18,4 @@ MonoBehaviour:
   displayText: SILVER SPIN
   DisplayNormalColor: {r: 0, g: 1, b: 0, a: 1}
   DisplayHighlightedColor: {r: 0, g: 1, b: 0, a: 1}
+  TitleColor: {r: 0.764151, g: 0.764151, b: 0.764151, a: 1}

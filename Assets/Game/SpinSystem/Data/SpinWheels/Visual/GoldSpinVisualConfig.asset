@@ -18,3 +18,4 @@ MonoBehaviour:
   displayText: GOLD SPIN
   DisplayNormalColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
   DisplayHighlightedColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  TitleColor: {r: 1, g: 0.81368804, b: 0.015686274, a: 1}
