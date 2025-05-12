@@ -34,6 +34,16 @@ Gameplay Video URL: https://youtu.be/Tvklkl4bGBc
 
 ![SS1-16-9](https://github.com/user-attachments/assets/be489519-20ec-40c2-9751-dae107f1785c)![SS2-16-9](https://github.com/user-attachments/assets/4c950b5d-661c-4d79-a4db-cf3229ab194f)![SS3-16-9](https://github.com/user-attachments/assets/f831c464-f2ee-4384-bef6-141f29b8e94a)![SS4-16-9](https://github.com/user-attachments/assets/c34529fe-fc8f-409c-a2f7-f0ecfb978ab1)![SS5-16-9](https://github.com/user-attachments/assets/6a313a0b-cfa6-4ce4-a869-858e593235de)![SS6-16-9](https://github.com/user-attachments/assets/db3371ed-7876-48ee-8cae-e661a3bd8914)
 
+4:3 Ratio Gameplay Video & Screenshots
+
+Gameplay Video URL: https://youtu.be/UTXJc3w_V-4
+
+![SS1-4-3](https://github.com/user-attachments/assets/5d620573-4ce8-4e7f-bd3c-8b9a1d41f5dc)![SS2-4-3](https://github.com/user-attachments/assets/b6734868-f0c3-431b-8988-de218d308d92)![SS3-4-3](https://github.com/user-attachments/assets/d9a84e59-1ce3-4968-88ef-dc3c37d988a0)![SS4-4-3](https://github.com/user-attachments/assets/33618a0b-1715-4a7f-afbd-ff66d9b5f6b4)![SS5-4-3](https://github.com/user-attachments/assets/8e4b809d-c674-4285-8155-83ac2c507120)![SS6-4-3](https://github.com/user-attachments/assets/484fd853-00e7-4433-8b07-6b83e6384182)
+
+
+
+
+
 
 
 
