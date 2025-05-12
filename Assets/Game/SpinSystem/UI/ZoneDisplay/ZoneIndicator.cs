@@ -10,8 +10,8 @@ namespace Game.SpinSystem.UI
     {
         [SerializeField] private TextMeshProUGUI superZoneIndicatorTxt;
         [SerializeField] private TextMeshProUGUI safeZoneIndicatorTxt;
-        private int _superZoneBaseInterval = 30;
-        private int _safeZoneBaseInterval = 5;
+        private readonly int _superZoneBaseInterval = 30;
+        private readonly int _safeZoneBaseInterval = 5;
         private int _currentSuperZone = 30;
         private int _currentSafeZone = 5;
         private void Awake()
@@ -38,7 +38,16 @@ namespace Game.SpinSystem.UI
                 }
                 if (obj.SpinZone % _currentSafeZone == 0)
                 {
-                    _currentSafeZone += _safeZoneBaseInterval;
+                    if (obj.SpinZone == _currentSuperZone - 5)
+                    {
+                        Debug.Log("Check Super Zone: " + (_currentSuperZone - 5));
+                        _currentSafeZone += _safeZoneBaseInterval * 2;
+                    }
+                    else
+                    {
+                        _currentSafeZone += _safeZoneBaseInterval;
+                    }
+                    
                     safeZoneIndicatorTxt.text = _currentSafeZone.ToString();
                 }
             }

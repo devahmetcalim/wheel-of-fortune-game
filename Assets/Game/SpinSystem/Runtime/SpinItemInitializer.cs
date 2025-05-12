@@ -8,23 +8,33 @@ namespace Game.SpinSystem.Runtime
     public class SpinItemInitializer : MonoBehaviour
     {
         [SerializeField]
-        private List<SpinItemUI> activeItems = new List<SpinItemUI>();
+        private List<SpinItemUI> activeItems = new ();
         
-
         public void SetItems(SpinWheelConfig spinConfig)
         {
             List<SpinItemData> iSpinItemDatas = new List<SpinItemData>();
-            foreach (var item in activeItems)
+            for (var i = 0; i < activeItems.Count; i++)
             {
+                SpinItemData selectedData;
+                if (spinConfig.VisualConfig.spinType == SpinType.Bronze)
+                    selectedData = i == 0 ? spinConfig.GetBomb() : SetRandomItem(spinConfig, iSpinItemDatas);
+                else
+                    selectedData = SetRandomItem(spinConfig, iSpinItemDatas);
                 
-                SpinItemData selecteData;
-                do
-                {
-                    selecteData = spinConfig.GetRandomItem();
-                } while (iSpinItemDatas.Contains(selecteData));
-                iSpinItemDatas.Add(selecteData);
-                item.Setup(selecteData);
+                iSpinItemDatas.Add(selectedData);
+                activeItems[i].Setup(selectedData);
             }
+        }
+
+        private static SpinItemData SetRandomItem(SpinWheelConfig spinConfig, List<SpinItemData> iSpinItemDatas)
+        {
+            SpinItemData selectedData;
+            do
+            {
+                selectedData = spinConfig.GetRandomItem();
+            } while (iSpinItemDatas.Contains(selectedData));
+
+            return selectedData;
         }
     }
 }

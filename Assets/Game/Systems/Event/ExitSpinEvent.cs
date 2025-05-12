@@ -1,5 +1,5 @@
 namespace Game.Systems.Event
 {
-    public class ExitSpinEvent {  } 
+    public struct ExitSpinEvent {  } 
 }
 

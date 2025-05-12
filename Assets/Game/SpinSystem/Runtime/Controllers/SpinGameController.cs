@@ -1,4 +1,5 @@
 
+using Game.SpinSystem.Config;
 using Game.SpinSystem.Infrastructure;
 using Game.SpinSystem.UI.Collected;
 using Game.Systems.Event;
@@ -14,12 +15,19 @@ namespace Game.SpinSystem.Runtime.Controllers
         {
             EventManager.Subscribe<RestartSpinEvent>(OnRestart);
             EventManager.Subscribe<ExitSpinEvent>(OnExit);
+            EventManager.Subscribe<ReviveSpinEvent>(OnRevive);
+        }
+
+        private void OnRevive(ReviveSpinEvent obj)
+        {
+            GoldManager.TrySpendGold(GameRules.RevivePrice);
         }
 
         private void OnDisable()
         {
             EventManager.Unsubscribe<RestartSpinEvent>(OnRestart);
             EventManager.Unsubscribe<ExitSpinEvent>(OnExit);
+            EventManager.Unsubscribe<ReviveSpinEvent>(OnRevive);
         }
         private void OnExit(ExitSpinEvent _)
         {

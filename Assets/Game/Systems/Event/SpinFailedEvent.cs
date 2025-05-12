@@ -1,4 +1,4 @@
 namespace Game.Systems.Event
 {
-    public class SpinFailedEvent { }   
+    public struct SpinFailedEvent { }   
 }

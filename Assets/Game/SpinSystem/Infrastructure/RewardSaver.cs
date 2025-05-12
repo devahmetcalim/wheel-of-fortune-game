@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 using Game.SpinSystem.Data;
+using Game.Systems.Event;
 
 namespace Game.SpinSystem.Infrastructure
 {
@@ -52,8 +53,31 @@ namespace Game.SpinSystem.Infrastructure
                 data.rewards.Add(new RewardEntry(kvp.Key, kvp.Value));
             }
             var json = JsonUtility.ToJson(data, true);
-            Debug.Log(json);
             File.WriteAllText(SavePath, json);
+            EventManager.Publish(new DataSavedEvent());
+        }
+        public static void Update(string itemKey, int amount)
+        {
+            var rewards = Load();
+            var existing = rewards.Find(r => r.itemKey == itemKey);
+            if (existing != null)
+            {
+                if (amount == 0)
+                    rewards.Remove(existing);
+                else
+                    existing.amount = amount;
+            }
+            else
+            {
+                rewards.Add(new RewardEntry(itemKey, amount));
+            }
+
+          
+
+            var data = new RewardSaveData { rewards = rewards };
+            var json = JsonUtility.ToJson(data, true);
+            File.WriteAllText(SavePath, json);
+            EventManager.Publish(new DataSavedEvent());
         }
 
 

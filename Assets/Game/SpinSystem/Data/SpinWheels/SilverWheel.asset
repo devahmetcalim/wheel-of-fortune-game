@@ -33,5 +33,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 958af3b820419e54e9c974e595168a12, type: 2}
   - {fileID: 11400000, guid: dc38325215e21cd4e9c3845824dadd8d, type: 2}
   - {fileID: 11400000, guid: 335079d13f0e4fd459550ffc2c57a428, type: 2}
+  - {fileID: 11400000, guid: d89e211916d7ca64ea8a9d52465971fd, type: 2}
   VisualConfig: {fileID: 11400000, guid: e355f4fbb35b9e3468eb6ab520813d42, type: 2}
   key: SilverWheel
