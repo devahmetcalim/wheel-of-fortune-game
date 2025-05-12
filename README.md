@@ -1,5 +1,7 @@
 Wheel of Fortune Game
 
+--------SUMMARY--------
+
 This is a game developer demo project created for Vertigo Games.
 Highlights
 - Modular Architecture — Designed using SOLID principles and scalable systems.
@@ -18,13 +20,24 @@ Highlights
 
 The project is structured with clear separation between Runtime, Data, UI, and Infrastructure, ensuring maintainability and scalability.
 
-MEDIA
+--------MEDIA--------
 
 20:9 Ratio Gameplay Video & Screenshots
 
 Gameplay Video URL: https://youtu.be/SudgFwerAY0
 
 ![SS1-20-9](https://github.com/user-attachments/assets/d224358a-109a-4e35-b977-d70f19e43a75)![SS2-20-9](https://github.com/user-attachments/assets/55b6dc68-30c4-4a86-9dfe-fc74dfdfa12a)![SS3-20-9](https://github.com/user-attachments/assets/cc91e80d-0055-43e9-8b09-73aaffe27715)![SS4-20-9](https://github.com/user-attachments/assets/b7fa2d40-e39c-4b90-a6b6-ce9c7418706f)![SS5-20-9](https://github.com/user-attachments/assets/686e328f-6c9c-4438-8cd9-80cd7fbf141c)![SS6-20-9](https://github.com/user-attachments/assets/faa906ef-ebf5-43b1-a38d-dc9777f2d791)
+
+16:9 Ratio Gameplay Video & Screenshots
+
+Gameplay Video URL: https://youtu.be/Tvklkl4bGBc
+
+![SS1-16-9](https://github.com/user-attachments/assets/be489519-20ec-40c2-9751-dae107f1785c)![SS2-16-9](https://github.com/user-attachments/assets/4c950b5d-661c-4d79-a4db-cf3229ab194f)![SS3-16-9](https://github.com/user-attachments/assets/f831c464-f2ee-4384-bef6-141f29b8e94a)![SS4-16-9](https://github.com/user-attachments/assets/c34529fe-fc8f-409c-a2f7-f0ecfb978ab1)![SS5-16-9](https://github.com/user-attachments/assets/6a313a0b-cfa6-4ce4-a869-858e593235de)![SS6-16-9](https://github.com/user-attachments/assets/db3371ed-7876-48ee-8cae-e661a3bd8914)
+
+
+
+
+
 
 
 
