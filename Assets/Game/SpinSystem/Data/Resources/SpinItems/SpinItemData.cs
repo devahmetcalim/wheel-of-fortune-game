@@ -13,14 +13,6 @@ namespace Game.SpinSystem.Data
         public string itemKey;
         public int maxAmount;
         public int minAmount;
-        
-        [System.NonSerialized]
-        public int amount;
-        public void SetRandomAmount()
-        {
-            amount = Random.Range(minAmount, maxAmount);
-        }
-
         private void OnValidate()
         {
             if (itemKey.Length > 0 )
