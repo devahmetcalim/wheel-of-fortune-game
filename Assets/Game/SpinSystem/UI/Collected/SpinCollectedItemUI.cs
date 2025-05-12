@@ -13,15 +13,12 @@ namespace Game.SpinSystem.UI.Collected
         public void Set(Sprite icon, int setAmount)
         {
             iconImage.sprite = icon;
-            Debug.Log("Set Amount" + setAmount);
             amountText.text = NumberFormatter.FormatNumber(setAmount);
         }
 
         public void UpdateAmount(int addAmount)
         {
             _amount += addAmount;
-            Debug.Log("Add amount: " + addAmount);
-            Debug.Log("Update Amount" + _amount);
             amountText.text = NumberFormatter.FormatNumber(_amount);
         }
     }
