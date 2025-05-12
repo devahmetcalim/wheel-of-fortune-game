@@ -3,7 +3,8 @@ Wheel of Fortune Game
 --------SUMMARY--------
 
 This is a game developer demo project created for Vertigo Games.
-Highlights
+
+
 - Modular Architecture — Designed using SOLID principles and scalable systems.
 
 - Dynamic Wheel System — Fully configurable wheels with different item types and reward logic.
