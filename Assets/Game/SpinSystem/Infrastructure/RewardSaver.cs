@@ -86,6 +86,7 @@ namespace Game.SpinSystem.Infrastructure
         {
             if (!File.Exists(SavePath))
                 return new List<RewardEntry>();
+            
             var json = File.ReadAllText(SavePath);
             var data = JsonUtility.FromJson<RewardSaveData>(json);
             return data?.rewards ?? new List<RewardEntry>();

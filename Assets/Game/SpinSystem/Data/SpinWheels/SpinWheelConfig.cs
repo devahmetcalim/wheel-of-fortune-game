@@ -11,7 +11,12 @@ public class SpinWheelConfig : ScriptableObject
     public string key;
     public SpinItemData GetRandomItem()
     {
-        SpinItemData selectedData = items[Random.Range(0, items.Length)];
+        SpinItemData selectedData;
+        do
+        {
+            selectedData = items[Random.Range(0, items.Length)];
+        } while (selectedData.itemType == SpinItemType.Bomb);
+       
         return selectedData;
     }
 
