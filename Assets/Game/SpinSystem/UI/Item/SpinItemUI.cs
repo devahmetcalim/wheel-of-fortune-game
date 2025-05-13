@@ -26,6 +26,14 @@ namespace Game.SpinSystem.UI
             EventManager.Subscribe<SpinStartedEvent>(SpinStarted);
         }
 
+        private void OnValidate()
+        {
+            if (collider == null)
+            {
+                collider = GetComponent<Collider2D>();
+            }
+        }
+
         private void SpinStarted(SpinStartedEvent obj)
         {
             collider.enabled = true;
